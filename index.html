@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cravex</title>
+    <link rel="icon" href="/CravexLogo.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #1a0529;
+        color: #e0d9ff;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        scroll-behavior: smooth;
+      }
+      a {
+        color: #a78bfa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover,
+      a:focus {
+        color: #7c3aed;
+        outline: none;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Space Grotesk", sans-serif;
+        margin-top: 0;
+        color: #d8b4fe;
+      }
+
+      /* Header */
+      header {
+        background: #2c1364;
+        padding: 1rem 0;
+        box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li a {
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+      }
+      nav ul li a:hover,
+      nav ul li a:focus {
+        background: #7c3aed;
+        color: #fff;
+        outline: none;
+      }
+      .buttons .nav-btn {
+        background: #7c3aed;
+        color: white;
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        border-radius: 30px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 0 8px #a78bfa88;
+        transition: background 0.3s ease;
+        user-select: none;
+      }
+      .buttons .nav-btn:hover,
+      .buttons .nav-btn:focus {
+        background: #a78bfa;
+        box-shadow: 0 0 12px #d8b4fecc;
+        outline: none;
+      }
+
+      /* Hero Section */
+      #hero {
+        flex: 1;
+        background: linear-gradient(135deg, #6b27dc 0%, #a78bfa 100%);
+        padding: 4rem 0;
+        color: #eee;
+        display: flex;
+        align-items: center;
+      }
+      #hero .container {
+        display: flex;
+        gap: 4rem;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .hero-text {
+        flex: 1 1 400px;
+        max-width: 600px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #ddd6fe;
+      }
+      .pulse-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: #d8b4fe;
+        border-radius: 50%;
+        animation: pulse 1.8s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.3);
+        }
+      }
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 800;
+      }
+      .gradient-text {
+        background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      .hero-subtitle {
+        font-size: 1.2rem;
+        color: #ddd6fecc;
+        margin-bottom: 2rem;
+      }
+      .hero-buttons a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0.75rem 1.75rem;
+        border-radius: 40px;
+        text-decoration: none;
+        user-select: none;
+        cursor: pointer;
+        box-shadow: 0 0 10px #a78bfaaa;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hero-buttons a.primary {
+        background: #7c3aed;
+        color: white;
+        margin-right: 1rem;
+      }
+      .hero-buttons a.primary:hover,
+      .hero-buttons a.primary:focus {
+        background: #a78bfa;
+        box-shadow: 0 0 15px #d8b4fecc;
+        outline: none;
+      }
+      .hero-buttons a.secondary {
+        background: transparent;
+        border: 2px solid #7c3aed;
+        color: #e0d9ff;
+      }
+      .hero-buttons a.secondary:hover,
+      .hero-buttons a.secondary:focus {
+        background: #7c3aed;
+        color: white;
+        outline: none;
+        box-shadow: 0 0 15px #a78bfa;
+      }
+
+      /* Hero visual */
+      .hero-visual {
+        flex: 1 1 350px;
+        max-width: 450px;
+        perspective: 1000px;
+      }
+      .hero-image {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 12px 35px rgb(124 58 237 / 0.7);
+        will-change: transform;
+        user-select: none;
+        cursor: grab;
+        transition: transform 0.2s ease;
+        transform-style: preserve-3d;
+        transform-origin: center center;
+        --rotate-x: 0deg;
+        --rotate-y: 0deg;
+        transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+      }
+
+      /* Features Section */
+      #features-section {
+        padding: 4rem 0;
+        background: #2c1364;
+        color: #d8b4fe;
+      }
+      #features-section .container {
+        max-width: 1000px;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .section-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #a78bfa;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .feature-card {
+        background: #3b22a1;
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 0 8px #7c3aed88;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        user-select: none;
+      }
+      .feature-card:focus,
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px #a78bfaaa;
+        outline: none;
+      }
+      .feature-icon {
+        font-size: 2.8rem;
+        background: linear-gradient(135deg, #7c3aed, #a78bfa);
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 15px #d8b4fecc;
+      }
+      h3 {
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      .feature-arrow {
+        font-size: 1.6rem;
+        color: #c4b5fd;
+        margin-top: 1.25rem;
+        user-select: none;
+        text-align: right;
+      }
+
+      /* Stats Section */
+      #stats-section {
+        background: #1a0529;
+        color: #c4b5fd;
+        padding: 4rem 0;
+      }
+      #stats-section h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 0.25rem;
+      }
+      #stats-section p {
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #a78bfa;
+        font-weight: 500;
+      }
+      .stats-container {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+      }
+      .stats-card {
+        background: #3b22a1;
+        padding: 2rem 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        min-width: 160px;
+        box-shadow: 0 0 12px #7c3aed88;
+        user-select: none;
+        transition: box-shadow 0.3s ease;
+      }
+      .stats-card:focus,
+      .stats-card:hover {
+        box-shadow: 0 0 20px #a78bfaee;
+        outline: none;
+      }
+      .stats-icon {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
+        color: #d8b4fe;
+      }
+      .stats-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+      .stats-label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #c4b5fdcc;
+      }
+      .stats-trend {
+        font-size: 0.9rem;
+        color: #a78bfa;
+      }
+
+      /* Install Section */
+      #install-section {
+        background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+        padding: 4rem 0;
+        color: #f3e8ff;
+      }
+      #install-section .container {
+        max-width: 1000px;
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .install-text {
+        flex: 1 1 400px;
+        max-width: 600px;
+      }
+      .install-text h2 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+      .install-text p {
+        font-weight: 500;
+        margin-bottom: 2rem;
+        color: #e0d9ffcc;
+      }
+      .install-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-weight: 600;
+      }
+      .install-feature {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.1rem;
+      }
+      .check-icon {
+        font-weight: 900;
+        color: #d8b4fe;
+        user-select: none;
+      }
+      .install-action {
+        flex: 0 0 220px;
+        text-align: center;
+      }
+      .install-btn {
+        background: #5b21b6;
+        border: none;
+        border-radius: 40px;
+        color: #e0d9ff;
+        font-weight: 800;
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        box-shadow: 0 0 15px #a78bfaaa;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        max-width: 220px;
+      }
+      .install-btn:hover,
+      .install-btn:focus {
+        background: #7c3aed;
+        box-shadow: 0 0 30px #d8b4fecc;
+        outline: none;
+      }
+      .btn-icon {
+        margin-right: 0.5rem;
+        font-size: 1.3rem;
+      }
+      .install-note {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #d8b4fecc;
+        user-select: none;
+      }
+      .shield-icon {
+        margin-right: 0.4rem;
+        font-size: 1.1rem;
+        vertical-align: middle;
+      }
+
+      /* Footer */
+      footer {
+        background: #2c1364;
+        color: #bfb8f6;
+        padding: 2rem 0 1rem;
+        margin-top: auto;
+      }
+      footer .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 2rem;
+        max-width: 1000px;
+      }
+      .footer-brand {
+        flex: 1 1 250px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .footer-logo {
+        width: 40px;
+        height: 40px;
+      }
+      .footer-brand p {
+        font-weight: 600;
+        color: #d8b4fe;
+      }
+      .footer-links {
+        display: flex;
+        gap: 3rem;
+        flex: 1 1 400px;
+        flex-wrap: wrap;
+      }
+      .footer-column h4 {
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: #a78bfa;
+      }
+      .footer-column a {
+        display: block;
+        margin-bottom: 0.6rem;
+        font-weight: 500;
+        color: #bfb8f6;
+      }
+      .footer-column a:hover,
+      .footer-column a:focus {
+        color: #d8b4fe;
+        outline: none;
+      }
+      .footer-bottom {
+        margin-top: 2rem;
+        border-top: 1px solid #4b367c;
+        padding-top: 1rem;
+        text-align: center;
+        color: #a78bfa;
+        font-size: 0.9rem;
+      }
+      .footer-social a {
+        color: #a78bfa;
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 1rem;
+        transition: color 0.3s ease;
+      }
+      .footer-social a:hover,
+      .footer-social a:focus {
+        color: #d8b4fe;
+        outline: none;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        #hero .container,
+        #install-section .container {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-visual,
+        .hero-text,
+        .install-text,
+        .install-action {
+          max-width: 100%;
+        }
+        .hero-visual {
+          margin-top: 2rem;
+          order: 2;
+        }
+        .hero-text {
+          order: 1;
+        }
+        nav ul {
+          gap: 1rem;
+        }
+        .footer-links {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        .footer-brand {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container" role="banner">
+        <img src="/CravexLogo.ico" alt="Cravex Logo" class="logo" />
+        <nav aria-label="Primary Navigation">
+          <ul>
+            <li><a href="index.html">Main</a></li>
+            <li><a href="/TOS.html">TOS</a></li>
+            <li><a href="update_log.html">Update Log</a></li>
+          </ul>
+        </nav>
+        <div class="buttons">
+          <a
+            href="https://dsc.gg/getcravex"
+            class="nav-btn"
+            role="button"
+            tabindex="0"
+          >
+            <span class="btn-icon" aria-hidden="true">💬</span>
+            Discord
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section id="hero" role="region" aria-label="Hero Section">
+      <div class="container">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Like None other
+          </div>
+          <h1>
+            <span class="gradient-text">Cravex</span><br />
+            <span class="gradient-text-2">#1 PC Executor</span>
+          </h1>
+          <p class="hero-subtitle">
+            Fully Enhance your Gaming Experience using the one and only
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="#install-section"
+              class="primary"
+              role="button"
+              tabindex="0"
+            >
+              <span class="btn-icon" aria-hidden="true">⚡</span>
+              Get Started Now
+            </a>
+            <a
+              href="#features-section"
+              class="secondary"
+              role="button"
+              tabindex="0"
+            >
+              <span class="btn-icon" aria-hidden="true">🚀</span>
+              Explore Features
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img
+            src="/image.png"
+            alt="Cravex Logo"
+            class="hero-image"
+            draggable="false"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features-section" role="region" aria-label="Features Section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Features
+          </div>
+          <h2>An Executor Like None Other</h2>
+          <p>
+            Discover why our community choose Cravex over others for its
+            unmatched performance, security, and innovation that pushes
+            boundaries.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" tabindex="0">
+            <div class="feature-icon gradient-bg" aria-hidden="true">⚡</div>
+            <h3>Fast Performance</h3>
+            <p>
+              Enhance your Gaming experience to it's maximum potential while
+              having no lag and no issues
+            </p>
+            <div class="feature-arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="feature-card" tabindex="0">
+            <div class="feature-icon gradient-bg" aria-hidden="true">🛡️</div>
+            <h3>Advanced Security</h3>
+            <p>
+              Most executors in the market are malware and are detected, Cravex
+              may not be 100% undetected, but it's 100% safe to use
+            </p>
+            <div class="feature-arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="feature-card" tabindex="0">
+            <div class="feature-icon gradient-bg" aria-hidden="true">💸</div>
+            <h3>Free and Keyless</h3>
+            <p>
+              Most executors are paid and still aren't the greatest, free
+              executors also aren't really good. Cravex is fully free and
+              keyless to use while still being one of the best executors
+            </p>
+            <div class="feature-arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="feature-card" tabindex="0">
+            <div class="feature-icon gradient-bg" aria-hidden="true">🔨</div>
+            <h3>High UNC</h3>
+            <p>
+              Most executors have an average from 60 to 80 UNC, which is really
+              weak, but Cravex offers a free and exclusive experience to the
+              user by offering a fresh 99% UNC
+            </p>
+            <div class="feature-arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="feature-card" tabindex="0">
+            <div class="feature-icon gradient-bg" aria-hidden="true">🔪</div>
+            <h3>Byfron Killer</h3>
+            <p>Compared to most executors, Cravex offers another path,</p>
+            <div class="feature-arrow" aria-hidden="true">→</div>
+          </div>
+
+          <div class="feature-card" tabindex="0">
+            <div class="feature-icon gradient-bg" aria-hidden="true">🎧</div>
+            <h3>24/7 Support</h3>
+            <p>
+              Get instant help from our dedicated support team available around
+              the clock for any questions.
+            </p>
+            <div class="feature-arrow" aria-hidden="true">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats-section" role="region" aria-label="Statistics Section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Trusted by our Community</h2>
+          <p>Join our growing community of satisfied users worldwide</p>
+        </div>
+        <div class="stats-container">
+          <div class="stats-card" tabindex="0">
+            <div class="stats-icon" aria-hidden="true">👥</div>
+            <div class="stats-number" id="user-count">Loading...</div>
+            <div class="stats-label">Discord Members</div>
+            <div class="stats-trend">+12% this week</div>
+          </div>
+          <div class="stats-card" tabindex="0">
+            <div class="stats-icon" aria-hidden="true">📥</div>
+            <div class="stats-number" id="installation-count">0</div>
+            <div class="stats-label">Total Downloads</div>
+            <div class="stats-trend">+0% this month</div>
+          </div>
+          <div class="stats-card" tabindex="0">
+            <div class="stats-icon" aria-hidden="true">🔧</div>
+            <div class="stats-number">1.0.0</div>
+            <div class="stats-label">Current Version</div>
+            <div class="stats-trend">Latest & Greatest</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Install Section -->
+    <section
+      id="install-section"
+      role="region"
+      aria-label="Installation Section"
+    >
+      <div class="container">
+        <div class="install-text">
+          <h2>Ready to Experience Excellence?</h2>
+          <p>
+            Join our community of people just like you who've already discovered
+            the power of Cravex. Download now and transform your experience
+            forever.
+          </p>
+          <div class="install-features">
+            <div class="install-feature">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              Instant setup in under 60 seconds
+            </div>
+            <div class="install-feature">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              Free updates for life
+            </div>
+            <div class="install-feature">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              24/7 premium support included
+            </div>
+          </div>
+        </div>
+        <div class="install-action">
+          <button
+            class="install-btn"
+            id="install-btn"
+            type="button"
+            aria-label="Download Cravex Now"
+          >
+            <span class="btn-icon" aria-hidden="true">🚀</span>
+            <span class="btn-text">Download Cravex Now</span>
+          </button>
+          <p class="install-note">
+            <span class="shield-icon" aria-hidden="true">🛡️</span>
+            100% Safe & Secure Download
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-brand">
+          <img src="/CravexLogo.ico" alt="Cravex" class="footer-logo" />
+          <p>V1.0.0</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Product</h4>
+            <a href="#features-section">Features</a>
+            <a href="#updates">Updates</a>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Cravex. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://dsc.gg/getcravex" class="social-link">Discord</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Backend API config
+      const API_BASE_URL = "http://localhost:3000";
+
+      // Animate stats counters
+      function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          element.textContent = Math.floor(current).toLocaleString();
+        }, 16);
+      }
+
+      // Fetch Discord member count
+      async function fetchUserCount() {
+        const userCountElement = document.getElementById("user-count");
+        try {
+          const inviteCode = "NPzzhqTMvq";
+          const response = await fetch(
+            `https://discord.com/api/v10/invites/${inviteCode}?with_counts=true`
+          );
+          if (response.ok) {
+            const data = await response.json();
+            const memberCount = data.approximate_member_count || 0;
+            animateCounter(userCountElement, memberCount);
+          } else {
+            throw new Error("Failed to fetch Discord data");
+          }
+        } catch (error) {
+          console.error("Error fetching Discord member count:", error);
+          userCountElement.textContent = "Loading...";
+          setTimeout(() => {
+            animateCounter(userCountElement, 1250);
+          }, 1000);
+        }
+      }
+
+      // Fetch download count from server
+      async function fetchDownloadCount() {
+        const downloadCountElement =
+          document.getElementById("installation-count");
+        try {
+          const response = await fetch(`${API_BASE_URL}/api/downloads`);
+          if (response.ok) {
+            const data = await response.json();
+            const downloadCount = data.totalDownloads || 0;
+            animateCounter(downloadCountElement, downloadCount);
+          } else {
+            throw new Error("Failed to fetch download count");
+          }
+        } catch (error) {
+          console.error("Error fetching download count:", error);
+          const fallbackCount =
+            localStorage.getItem("cravex_download_count") || "0";
+          downloadCountElement.textContent = fallbackCount;
+        }
+      }
+
+      // Installation button with server-side counting
+      document
+        .getElementById("install-btn")
+        .addEventListener("click", async (event) => {
+          event.preventDefault();
+          const btn = event.target.closest(".install-btn");
+          const btnText = btn.querySelector(".btn-text");
+          const originalText = btnText.textContent;
+
+          btnText.textContent = "Preparing Download...";
+          btn.classList.add("loading");
+          btn.disabled = true;
+
+          try {
+            const response = await fetch(
+              `${API_BASE_URL}/api/downloads/increment`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+              }
+            );
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+              const downloadCountElement =
+                document.getElementById("installation-count");
+              animateCounter(downloadCountElement, data.totalDownloads);
+              localStorage.setItem(
+                "cravex_download_count",
+                data.totalDownloads.toString()
+              );
+
+              btnText.textContent = "Starting Download...";
+              btn.classList.remove("loading");
+              btn.classList.add("success");
+
+              setTimeout(() => {
+                window.location.href = `${API_BASE_URL}/download/cravex`;
+                btnText.textContent = "Download Started!";
+
+                setTimeout(() => {
+                  btnText.textContent = originalText;
+                  btn.classList.remove("success");
+                  btn.disabled = false;
+                }, 3000);
+              }, 1000);
+            } else {
+              throw new Error(data.error || "Failed to process download");
+            }
+          } catch (error) {
+            console.error("Download error:", error);
+            btnText.textContent = error.message.includes("wait")
+              ? "Please Wait..."
+              : "Download Failed";
+            btn.classList.remove("loading");
+            btn.classList.add("error");
+
+            setTimeout(() => {
+              btnText.textContent = originalText;
+              btn.classList.remove("error");
+              btn.disabled = false;
+            }, 3000);
+          }
+        });
+
+      // Intersection Observer for animations (optional, can be removed)
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      }, observerOptions);
+
+      // Observe features and stats cards for animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const featureCards = document.querySelectorAll(".feature-card");
+        const statsCards = document.querySelectorAll(".stats-card");
+
+        [...featureCards, ...statsCards].forEach((card) => {
+          observer.observe(card);
+        });
+
+        fetchUserCount();
+        fetchDownloadCount();
+
+        // Smooth scrolling for anchors
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+      });
+
+      // Hero image tilt effect
+      const heroImage = document.querySelector(".hero-image");
+      heroImage.addEventListener("mousemove", (e) => {
+        const rect = heroImage.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -15;
+        const rotateY = ((x - centerX) / centerX) * 15;
+
+        heroImage.style.setProperty("--rotate-x", `${rotateX}deg`);
+        heroImage.style.setProperty("--rotate-y", `${rotateY}deg`);
+      });
+      heroImage.addEventListener("mouseleave", () => {
+        heroImage.style.setProperty("--rotate-x", "0deg");
+        heroImage.style.setProperty("--rotate-y", "0deg");
+      });
+    </script>
+  </body>
+</html>
+message.txt 28 KB
