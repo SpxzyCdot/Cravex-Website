@@ -1,0 +1,73 @@
+/* Update Log Specific Styles */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #6b27dc 0%, #a78bfa 100%);
+  color: #e0d9ff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+.update-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.update-column {
+  background: rgba(59, 34, 161, 0.9);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 0 8px #7c3aed88;
+}
+
+.update-column h2 {
+  color: #d8b4fe;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.case {
+  background: #2c1364;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 6px #a78bfa88;
+}
+
+.case h3 {
+  color: #d8b4fe;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.case p {
+  color: #c4b5fd;
+  margin: 0.5rem 0;
+}
+
+.case ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  color: #e0d9ff;
+}
+
+.case ul li {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .update-container {
+    grid-template-columns: 1fr;
+  }
+}
