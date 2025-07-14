@@ -1,1 +1,285 @@
-function _0x5838(){const _0x12ee58=['cursor','playing','floor','href','scrollY','background-audio','.cursor-follower','log','style','261000jFpbwG','forEach','14PMmvFa','612115hqHWkF','registerPlugin','9805ZQJgSK','.staff-card','291837POAsMg','user-count','mouseenter','toArray','classList','.staff-profile-card','left','click','--rotate-y','toLocaleString','mousemove','scrolled','.hero-image','11RtYuYa','setProperty','textContent','utils','3112677pTZRnj','70aKRKEF','header','play','from','12wGjHTS','error','mouseleave','?with_counts=true','querySelectorAll','a,\x20button,\x20.feature-card,\x20.stat-card,\x20.staff-card,\x20.staff-profile-card,\x20.hero-img,\x20.logo,\x20.footer-logo,\x20.social-link,\x20#audio-toggle','json','back.out(1)','Error\x20fetching\x20member\x20count:','deg','width','clientX','addEventListener','none','power2.inOut','getBoundingClientRect','clientY','num','remove','1368008aZlAMG','top\x2080%','play\x20none\x20none\x20none','getElementById','N/A','.hero-buttons','18VHErBx','audio-toggle','catch','mouseup','active','7687632grxyaF','0deg','height','Autoplay\x20prevented:','.cursor','querySelector','DOMContentLoaded','.feature-card','top','download-count','pause','add'];_0x5838=function(){return _0x12ee58;};return _0x5838();}const _0x341f19=_0x23fb;(function(_0x30b01a,_0x469256){const _0x480643=_0x23fb,_0x4f4836=_0x30b01a();while(!![]){try{const _0x574285=-parseInt(_0x480643(0x136))/0x1*(-parseInt(_0x480643(0xfa))/0x2)+parseInt(_0x480643(0x138))/0x3*(parseInt(_0x480643(0xfe))/0x4)+-parseInt(_0x480643(0x134))/0x5*(parseInt(_0x480643(0x117))/0x6)+-parseInt(_0x480643(0x133))/0x7*(-parseInt(_0x480643(0x111))/0x8)+parseInt(_0x480643(0xf9))/0x9+-parseInt(_0x480643(0x131))/0xa+parseInt(_0x480643(0xf5))/0xb*(-parseInt(_0x480643(0x11c))/0xc);if(_0x574285===_0x469256)break;else _0x4f4836['push'](_0x4f4836['shift']());}catch(_0xf0c0de){_0x4f4836['push'](_0x4f4836['shift']());}}}(_0x5838,0x4685e));const cursor=document[_0x341f19(0x121)](_0x341f19(0x120)),cursorFollower=document[_0x341f19(0x121)](_0x341f19(0x12e));function initializeCursor(){const _0x3dc48f=_0x341f19;if(!cursor||!cursorFollower)return;if(window['innerWidth']>0x300){document['addEventListener'](_0x3dc48f(0xf2),_0x359f70=>{const _0x1cbefa=_0x3dc48f;cursor['style'][_0x1cbefa(0x13e)]=_0x359f70[_0x1cbefa(0x109)]+'px',cursor[_0x1cbefa(0x130)][_0x1cbefa(0x124)]=_0x359f70[_0x1cbefa(0x10e)]+'px',setTimeout(()=>{const _0x1b52e4=_0x1cbefa;cursorFollower[_0x1b52e4(0x130)][_0x1b52e4(0x13e)]=_0x359f70[_0x1b52e4(0x109)]+'px',cursorFollower[_0x1b52e4(0x130)][_0x1b52e4(0x124)]=_0x359f70[_0x1b52e4(0x10e)]+'px';},0x64);});const _0x35bb98=document[_0x3dc48f(0x102)](_0x3dc48f(0x103));_0x35bb98['forEach'](_0x31636d=>{const _0x2ca997=_0x3dc48f;_0x31636d[_0x2ca997(0x10a)](_0x2ca997(0x13a),()=>{const _0x6e633d=_0x2ca997;cursor[_0x6e633d(0x13c)]['add'](_0x6e633d(0x11b)),cursorFollower['classList'][_0x6e633d(0x127)]('active'),_0x31636d[_0x6e633d(0x130)][_0x6e633d(0x128)]=_0x6e633d(0x10b);}),_0x31636d[_0x2ca997(0x10a)](_0x2ca997(0x100),()=>{const _0x13dbf6=_0x2ca997;cursor[_0x13dbf6(0x13c)][_0x13dbf6(0x110)](_0x13dbf6(0x11b)),cursorFollower[_0x13dbf6(0x13c)][_0x13dbf6(0x110)](_0x13dbf6(0x11b));});}),document[_0x3dc48f(0x10a)]('mousedown',()=>{const _0x4a9e45=_0x3dc48f;cursor[_0x4a9e45(0x13c)][_0x4a9e45(0x127)](_0x4a9e45(0xef)),cursorFollower[_0x4a9e45(0x13c)]['add'](_0x4a9e45(0xef));}),document['addEventListener'](_0x3dc48f(0x11a),()=>{const _0x3a82ae=_0x3dc48f;cursor[_0x3a82ae(0x13c)][_0x3a82ae(0x110)](_0x3a82ae(0xef)),cursorFollower[_0x3a82ae(0x13c)][_0x3a82ae(0x110)](_0x3a82ae(0xef));});}}window['addEventListener']('scroll',()=>{const _0x319ffd=_0x341f19,_0x4f40e8=document[_0x319ffd(0x121)](_0x319ffd(0xfb));window[_0x319ffd(0x12c)]>0x32?_0x4f40e8['classList'][_0x319ffd(0x127)](_0x319ffd(0xf3)):_0x4f40e8[_0x319ffd(0x13c)][_0x319ffd(0x110)]('scrolled');});function _0x23fb(_0x3d8f20,_0x28f410){const _0x583857=_0x5838();return _0x23fb=function(_0x23fbe7,_0xd55c96){_0x23fbe7=_0x23fbe7-0xef;let _0x33190e=_0x583857[_0x23fbe7];return _0x33190e;},_0x23fb(_0x3d8f20,_0x28f410);}const heroImg=document[_0x341f19(0x121)]('.hero-img');heroImg&&(heroImg[_0x341f19(0x10a)](_0x341f19(0xf2),_0x554fac=>{const _0x18cfc7=_0x341f19,_0x1f58c2=heroImg[_0x18cfc7(0x10d)](),_0x239f60=_0x554fac['clientX']-_0x1f58c2[_0x18cfc7(0x13e)],_0x37db38=_0x554fac['clientY']-_0x1f58c2[_0x18cfc7(0x124)],_0x1bdd5f=_0x1f58c2[_0x18cfc7(0x108)]/0x2,_0x4e29e0=_0x1f58c2[_0x18cfc7(0x11e)]/0x2,_0x2deeae=(_0x37db38-_0x4e29e0)/_0x4e29e0*-0xa,_0x20618f=(_0x239f60-_0x1bdd5f)/_0x1bdd5f*0xa;heroImg[_0x18cfc7(0x130)][_0x18cfc7(0xf6)]('--rotate-x',_0x2deeae+_0x18cfc7(0x107)),heroImg[_0x18cfc7(0x130)][_0x18cfc7(0xf6)](_0x18cfc7(0xf0),_0x20618f+_0x18cfc7(0x107));}),heroImg[_0x341f19(0x10a)](_0x341f19(0x100),()=>{const _0x4834a7=_0x341f19;heroImg[_0x4834a7(0x130)][_0x4834a7(0xf6)]('--rotate-x',_0x4834a7(0x11d)),heroImg[_0x4834a7(0x130)][_0x4834a7(0xf6)](_0x4834a7(0xf0),_0x4834a7(0x11d));}));async function fetchMemberCount(){const _0x5924a0=_0x341f19,_0x9c74cd='NPzzhqTMvq';try{const _0x2a738b=await fetch('https://discord.com/api/v10/invites/'+_0x9c74cd+_0x5924a0(0x101)),_0x5dc51a=await _0x2a738b[_0x5924a0(0x104)]();return _0x5dc51a['approximate_member_count']||0x0;}catch(_0x3ba630){return console[_0x5924a0(0xff)](_0x5924a0(0x106),_0x3ba630),0x0;}}const audioToggle=document[_0x341f19(0x114)](_0x341f19(0x118)),backgroundAudio=document[_0x341f19(0x114)](_0x341f19(0x12d));audioToggle&&backgroundAudio&&(backgroundAudio[_0x341f19(0xfc)]()[_0x341f19(0x119)](_0x4974ff=>{const _0x5292fc=_0x341f19;console[_0x5292fc(0x12f)](_0x5292fc(0x11f),_0x4974ff);}),audioToggle['addEventListener']('click',()=>{const _0x1ea9ce=_0x341f19;backgroundAudio['paused']?(backgroundAudio[_0x1ea9ce(0xfc)](),audioToggle[_0x1ea9ce(0x13c)][_0x1ea9ce(0x127)](_0x1ea9ce(0x129))):(backgroundAudio[_0x1ea9ce(0x126)](),audioToggle[_0x1ea9ce(0x13c)][_0x1ea9ce(0x110)](_0x1ea9ce(0x129)));}));gsap[_0x341f19(0x135)](ScrollTrigger),gsap[_0x341f19(0xfd)]('.hero-badge',{'opacity':0x0,'y':0x14,'duration':0.8,'delay':0.3}),gsap['from']('.hero-title',{'opacity':0x0,'y':0x1e,'duration':0.8,'delay':0.5}),gsap[_0x341f19(0xfd)]('.hero-subtitle',{'opacity':0x0,'y':0x1e,'duration':0.8,'delay':0.7}),gsap['from'](_0x341f19(0x116),{'opacity':0x0,'y':0x1e,'duration':0.8,'delay':0.9}),gsap[_0x341f19(0xfd)](_0x341f19(0xf4),{'opacity':0x0,'y':0x1e,'duration':0.8,'delay':0.6,'ease':_0x341f19(0x105)}),gsap[_0x341f19(0xf8)]['toArray'](_0x341f19(0x123))[_0x341f19(0x132)]((_0x51ad50,_0x10f908)=>{const _0x663367=_0x341f19;gsap[_0x663367(0xfd)](_0x51ad50,{'scrollTrigger':{'trigger':_0x51ad50,'start':_0x663367(0x112),'toggleActions':_0x663367(0x113)},'opacity':0x0,'y':0x32,'duration':0.6,'delay':_0x10f908*0.1,'ease':_0x663367(0x105)});}),gsap[_0x341f19(0xf8)][_0x341f19(0x13b)]('.stat-card')[_0x341f19(0x132)]((_0x21447f,_0x1eec04)=>{const _0x5f2495=_0x341f19;gsap['from'](_0x21447f,{'scrollTrigger':{'trigger':_0x21447f,'start':_0x5f2495(0x112),'toggleActions':_0x5f2495(0x113)},'opacity':0x0,'y':0x32,'duration':0.6,'delay':_0x1eec04*0.1,'ease':'back.out(1)'});}),gsap[_0x341f19(0xf8)][_0x341f19(0x13b)](_0x341f19(0x137))['forEach']((_0x2b84df,_0x555b8e)=>{const _0x1b08a8=_0x341f19;gsap[_0x1b08a8(0xfd)](_0x2b84df,{'scrollTrigger':{'trigger':_0x2b84df,'start':_0x1b08a8(0x112),'toggleActions':_0x1b08a8(0x113)},'opacity':0x0,'y':0x32,'duration':0.6,'delay':_0x555b8e*0.1,'ease':'back.out(1)'});}),gsap[_0x341f19(0xfd)](_0x341f19(0x13d),{'scrollTrigger':{'trigger':_0x341f19(0x13d),'start':'top\x2080%','toggleActions':'play\x20none\x20none\x20none'},'opacity':0x0,'y':0x32,'duration':0.8,'ease':_0x341f19(0x105)});async function animateCounters(){const _0x55173a=_0x341f19,_0x1451c5=document[_0x55173a(0x114)](_0x55173a(0x139)),_0x55c51c=document[_0x55173a(0x114)](_0x55173a(0x125));if(_0x1451c5){const _0x4ce37e=await fetchMemberCount();gsap['to']({'num':0x0},{'num':_0x4ce37e,'duration':0x2,'scrollTrigger':{'trigger':_0x1451c5,'start':_0x55173a(0x112),'toggleActions':'play\x20none\x20none\x20none'},'onUpdate':function(){const _0xc0d661=_0x55173a;_0x1451c5[_0xc0d661(0xf7)]=Math[_0xc0d661(0x12a)](this['targets']()[0x0][_0xc0d661(0x10f)])['toLocaleString']()+(_0x4ce37e>0x0?'+':'');},'onComplete':function(){const _0x466422=_0x55173a;_0x4ce37e===0x0&&(_0x1451c5[_0x466422(0xf7)]=_0x466422(0x115));}});}_0x55c51c&&gsap['to']({'num':0x0},{'num':0xcc4c,'duration':0x2,'scrollTrigger':{'trigger':_0x55c51c,'start':_0x55173a(0x112),'toggleActions':_0x55173a(0x113)},'onUpdate':function(){const _0x538fae=_0x55173a;_0x55c51c[_0x538fae(0xf7)]=Math[_0x538fae(0x12a)](this['targets']()[0x0][_0x538fae(0x10f)])[_0x538fae(0xf1)]()+'+';}});}document[_0x341f19(0x10a)](_0x341f19(0x122),()=>{const _0x805d77=_0x341f19;initializeCursor(),animateCounters(),document[_0x805d77(0x102)]('a[href^=\x22#\x22]')[_0x805d77(0x132)](_0x2b96a0=>{const _0xd3fcc1=_0x805d77;_0x2b96a0[_0xd3fcc1(0x10a)]('click',function(_0x52d8f5){const _0x3b9a7d=_0xd3fcc1;_0x52d8f5['preventDefault']();const _0x38f0da=document[_0x3b9a7d(0x121)](this['getAttribute'](_0x3b9a7d(0x12b)));_0x38f0da&&gsap['to'](window,{'duration':0.8,'scrollTo':{'y':_0x38f0da,'offsetY':0x50},'ease':_0x3b9a7d(0x10c)});});});});
+/* Custom Cursor */
+const cursor = document.querySelector(".cursor");
+const cursorFollower = document.querySelector(".cursor-follower");
+
+function initializeCursor() {
+  if (!cursor || !cursorFollower) return;
+
+  // Only enable custom cursor on desktop
+  if (window.innerWidth > 768) {
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+
+      // Follower with delay
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + "px";
+        cursorFollower.style.top = e.clientY + "px";
+      }, 100);
+    });
+
+    // Hover effects
+    const hoverElements = document.querySelectorAll(
+      "a, button, .feature-card, .stat-card, .staff-card, .staff-profile-card, .hero-img, .logo, .footer-logo, .social-link, #audio-toggle"
+    );
+
+    hoverElements.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("active");
+        cursorFollower.classList.add("active");
+        el.style.cursor = "none";
+      });
+
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("active");
+        cursorFollower.classList.remove("active");
+      });
+    });
+
+    // Click effect
+    document.addEventListener("mousedown", () => {
+      cursor.classList.add("click");
+      cursorFollower.classList.add("click");
+    });
+
+    document.addEventListener("mouseup", () => {
+      cursor.classList.remove("click");
+      cursorFollower.classList.remove("click");
+    });
+  }
+}
+
+/* Header scroll effect */
+window.addEventListener("scroll", () => {
+  const header = document.querySelector("header");
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+/* Audio control for staff profile */
+const audioToggle = document.getElementById("audio-toggle");
+const backgroundAudio = document.getElementById("background-audio");
+
+if (audioToggle && backgroundAudio) {
+  // Autoplay audio
+  backgroundAudio.play().catch((error) => {
+    console.log("Autoplay prevented:", error);
+  });
+
+  // Toggle play/pause
+  audioToggle.addEventListener("click", () => {
+    if (backgroundAudio.paused) {
+      backgroundAudio.play();
+      audioToggle.classList.add("playing");
+    } else {
+      backgroundAudio.pause();
+      audioToggle.classList.remove("playing");
+    }
+  });
+}
+
+/* GSAP Animations */
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate hero elements
+gsap.from(".hero-badge", {
+  opacity: 0,
+  y: 20,
+  duration: 0.8,
+  delay: 0.3,
+});
+
+gsap.from(".hero-title", {
+  opacity: 0,
+  y: 30,
+  duration: 0.8,
+  delay: 0.5,
+});
+
+gsap.from(".hero-subtitle", {
+  opacity: 0,
+  y: 30,
+  duration: 0.8,
+  delay: 0.7,
+});
+
+gsap.from(".hero-buttons", {
+  opacity: 0,
+  y: 30,
+  duration: 0.8,
+  delay: 0.9,
+});
+
+gsap.from(".hero-image", {
+  opacity: 0,
+  y: 30,
+  duration: 0.8,
+  delay: 0.6,
+  ease: "back.out(1)",
+});
+
+// Animate features
+gsap.utils.toArray(".feature-card").forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.6,
+    delay: i * 0.1,
+    ease: "back.out(1)",
+  });
+});
+
+// Animate stats
+gsap.utils.toArray(".stat-card").forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.6,
+    delay: i * 0.1,
+    ease: "back.out(1)",
+  });
+});
+
+// Animate staff cards
+gsap.utils.toArray(".staff-card").forEach((card, i) => {
+  gsap.from(card, {
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.6,
+    delay: i * 0.1,
+    ease: "back.out(1)",
+  });
+});
+
+// Animate staff profile card
+gsap.from(".staff-profile-card", {
+  scrollTrigger: {
+    trigger: ".staff-profile-card",
+    start: "top 80%",
+    toggleActions: "play none none none",
+  },
+  opacity: 0,
+  y: 50,
+  duration: 0.8,
+  ease: "back.out(1)",
+});
+
+// Counter animation for stats
+async function fetchMemberCount() {
+  // Placeholder: Replace with actual API call if available
+  return 48; // Static value to match displayed "48+" Discord members
+}
+
+async function animateCounters() {
+  const userCount = document.getElementById("user-count");
+  const downloadCount = document.getElementById("download-count");
+
+  if (userCount) {
+    const memberCount = await fetchMemberCount();
+    gsap.to(
+      { num: 0 },
+      {
+        num: memberCount,
+        duration: 2,
+        scrollTrigger: {
+          trigger: userCount,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        onUpdate: function () {
+          userCount.textContent =
+            Math.floor(this.targets()[0].num).toLocaleString() + (memberCount > 0 ? "+" : "");
+        },
+        onComplete: function () {
+          if (memberCount === 0) {
+            userCount.textContent = "N/A";
+          }
+        },
+      }
+    );
+  }
+
+  if (downloadCount) {
+    gsap.to(
+      { num: 0 },
+      {
+        num: 52300,
+        duration: 2,
+        scrollTrigger: {
+          trigger: downloadCount,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        onUpdate: function () {
+          downloadCount.textContent =
+            Math.floor(this.targets()[0].num).toLocaleString() + "+";
+        },
+      }
+    );
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initializeCursor();
+  animateCounters();
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        gsap.to(window, {
+          duration: 0.8,
+          scrollTo: {
+            y: target,
+            offsetY: 80,
+          },
+          ease: "power2.inOut",
+        });
+      }
+    });
+  });
+
+  // Modal JavaScript
+  const downloadBtn = document.getElementById('download-btn');
+  const tosModal = document.getElementById('tos-modal');
+  const tosAccept = document.getElementById('tos-accept');
+  const tosDecline = document.getElementById('tos-decline');
+
+  if (downloadBtn && tosModal && tosAccept && tosDecline) {
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      tosModal.style.display = 'flex';
+    });
+
+    tosAccept.addEventListener('click', () => {
+      // Replace with actual download link
+      window.location.href = 'https://example.com/download/cravex.exe';
+      tosModal.style.display = 'none';
+    });
+
+    tosDecline.addEventListener('click', () => {
+      tosModal.style.display = 'none';
+    });
+  }
+});
