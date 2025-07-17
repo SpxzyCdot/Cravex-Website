@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --tab-bg: #252525;
+            --tab-active-bg: #2a1a3a;
+            --tab-border: #333;
+            --accent-color: #a020f0;
+            --accent-light: #c060ff;
+            --text-color: #e0e0e0;
+            --text-muted: #aaa;
+            --highlight: #a020f040;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            height: 100%;
+            font-weight: 400;
+        }
+
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #tab-bar {
+            background: #191919;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            gap: 8px;
+            border-bottom: 1px solid var(--tab-border);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
+        }
+
+        #tab-bar::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        #tab-bar::-webkit-scrollbar-thumb {
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .tab {
+            height: 32px;
+            padding: 0 15px;
+            background: var(--tab-bg);
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            border-radius: 6px;
+            position: relative;
+            transition: all 0.2s ease;
+            min-width: 40px;
+            max-width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            border: 1px solid var(--tab-border);
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            background: #2d2d2d;
+        }
+
+        .tab.active {
+            background: var(--tab-active-bg);
+            color: white;
+            box-shadow: 0 0 0 1px var(--accent-color);
+            font-weight: 500;
+        }
+
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+            transform: scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .tab.active::after {
+            transform: scaleX(1)
+        }
+
+        .tab-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 6px;
+        }
+
+        .tab-name {
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tab-edit {
+            color: var(--text-muted);
+            font-size: 11px;
+            transition: all 0.2s ease;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .tab:hover .tab-edit {
+            opacity: 1;
+        }
+
+        .tab-edit:hover {
+            color: var(--accent-light);
+        }
+
+        .tab-close {
+            color: var(--text-muted);
+            font-size: 14px;
+            transition: all 0.2s ease;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .tab:hover .tab-close {
+            opacity: 1;
+            color: #ff6b6b;
+        }
+
+        .tab-close:hover {
+            transform: scale(1.1);
+        }
+
+        .tab-edit-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--tab-active-bg);
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            color: white;
+            padding: 0 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            outline: none;
+        }
+
+        #new-tab-btn {
+            background: var(--tab-bg);
+            color: var(--text-muted);
+            border: 1px solid var(--tab-border);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #new-tab-btn:hover {
+            color: var(--accent-light);
+            background: var(--tab-active-bg);
+            transform: scale(1.05);
+        }
+
+        #container {
+            flex: 1;
+            width: 100%;
+        }
+
+        .tab-enter {
+            animation: tabEnter 0.3s ease-out forwards;
+        }
+
+        .tab-exit {
+            animation: tabExit 0.3s ease-in forwards;
+        }
+
+        @keyframes tabEnter {
+            from {
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes tabExit {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+        }
+
+        .editor-transition-out {
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .editor-transition-in {
+            opacity: 1;
+            transition: opacity 0.2s ease-in;
+        }
+
+        /* Improved scrollbar for Monaco */
+        .monaco-scrollable-element > .scrollbar > .slider {
+            background: var(--accent-color) !important;
+        }
+    </style>
+    <title>Cravex</title>
+</head>
+<body>
+<div id="main-container">
+    <div id="tab-bar">
+        <button id="new-tab-btn">+</button>
+    </div>
+    <div id="container"></div>
+</div>
+<script src="vs/loader.js"></script>
+<script>
+    // Global variables
+    let tabs = [];
+    let activeTab = null;
+    let editor = null;
+    let saveTabsEnabled = true;
+
+    // Tab class
+    class Tab {
+        constructor(name = `script_${tabs.length + 1}.lua`, content = "-- Welcome to Cravex!\n-- Happy scripting!") {
+            this.id = `tab-${Date.now()}`;
+            this.name = name;
+            this.content = content;
+            this.isRenaming = false;
+            this.element = this.createTabElement();
+        }
+
+        createTabElement() {
+            const tabElement = document.createElement("div");
+            tabElement.className = "tab tab-enter";
+            
+            tabElement.innerHTML = `
+                <div class="tab-content">
+                    <span class="tab-name">${this.name}</span>
+                    <span class="tab-edit"><i class="fas fa-pencil-alt"></i></span>
+                    <span class="tab-close">×</span>
+                </div>
+            `;
+
+            setTimeout(() => tabElement.classList.remove("tab-enter"), 300);
+
+            // Event handlers
+            tabElement.addEventListener('click', (e) => {
+                if (!this.isRenaming && !e.target.closest(".tab-edit") && !e.target.classList.contains("tab-close")) {
+                    this.activate();
+                }
+            });
+
+            tabElement.querySelector(".tab-close").addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.close();
+            });
+
+            tabElement.querySelector(".tab-edit").addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.startRenaming();
+            });
+
+            this.updateTabWidth();
+            return tabElement;
+        }
+
+        updateTabWidth() {
+            const minWidth = 60;
+            const maxWidth = 220;
+            const charWidth = 7.5;
+            const padding = 40;
+            const calculatedWidth = Math.min(maxWidth, Math.max(minWidth, this.name.length * charWidth + padding));
+            this.element.style.width = `${calculatedWidth}px`;
+        }
+
+        startRenaming() {
+            if (this.isRenaming) return;
+            
+            this.isRenaming = true;
+            const tabContent = this.element.querySelector('.tab-content');
+            tabContent.style.visibility = 'hidden';
+            
+            const input = document.createElement('input');
+            input.className = 'tab-edit-input';
+            input.value = this.name;
+            this.element.appendChild(input);
+            input.focus();
+            input.select();
+            
+            const finishRenaming = () => {
+                const newName = input.value.trim() || `script_${tabs.length}.lua`;
+                if (newName !== this.name) {
+                    this.name = newName;
+                    this.element.querySelector('.tab-name').textContent = newName;
+                    this.updateTabWidth();
+                    saveTabs();
+                }
+                this.element.removeChild(input);
+                tabContent.style.visibility = 'visible';
+                this.isRenaming = false;
+            };
+            
+            input.addEventListener('blur', finishRenaming);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') finishRenaming();
+                if (e.key === 'Escape') {
+                    this.element.removeChild(input);
+                    tabContent.style.visibility = 'visible';
+                    this.isRenaming = false;
+                }
+            });
+        }
+
+        activate() {
+            if (activeTab) {
+                activeTab.element.classList.remove("active");
+                if (editor) {
+                    activeTab.content = editor.getValue();
+                }
+            }
+            
+            activeTab = this;
+            this.element.classList.add("active");
+            
+            const container = document.getElementById("container");
+            container.classList.add("editor-transition-out");
+            
+            setTimeout(() => {
+                if (editor) {
+                    editor.setValue(this.content);
+                }
+                container.classList.remove("editor-transition-out");
+                container.classList.add("editor-transition-in");
+                setTimeout(() => container.classList.remove("editor-transition-in"), 200);
+            }, 200);
+            
+            saveTabs();
+        }
+
+        close() {
+            if (tabs.length <= 1) {
+                this.content = "-- Welcome to Cravex!\n-- Happy scripting!";
+                if (editor) editor.setValue(this.content);
+                return;
+            }
+            
+            this.element.classList.add("tab-exit");
+            setTimeout(() => {
+                const index = tabs.indexOf(this);
+                tabs.splice(index, 1);
+                this.element.remove();
+                
+                if (this === activeTab) {
+                    const newActiveIndex = Math.max(0, index - 1);
+                    if (tabs[newActiveIndex]) {
+                        tabs[newActiveIndex].activate();
+                    }
+                }
+                saveTabs();
+            }, 300);
+        }
+    }
+
+    // Tab management functions
+    function saveTabs() {
+        if (!saveTabsEnabled) return;
+        const tabData = tabs.map(tab => ({
+            name: tab.name,
+            content: tab.content
+        }));
+        localStorage.setItem("cravex-tabs", JSON.stringify(tabData));
+    }
+
+    function loadTabs() {
+        const saved = localStorage.getItem("cravex-tabs");
+        if (saved) {
+            const tabData = JSON.parse(saved);
+            tabData.forEach(tabInfo => {
+                const tab = new Tab(tabInfo.name, tabInfo.content);
+                tabs.push(tab);
+                document.getElementById("tab-bar").appendChild(tab.element);
+            });
+            if (tabs.length > 0) tabs[0].activate();
+        } else {
+            createFirstTab();
+        }
+    }
+
+    function createFirstTab() {
+        const firstTab = new Tab("script.lua", "-- Welcome to Cravex!\n-- Happy scripting!");
+        tabs.push(firstTab);
+        document.getElementById("tab-bar").appendChild(firstTab.element);
+        firstTab.activate();
+    }
+
+    function createNewTab() {
+        const tab = new Tab();
+        tabs.push(tab);
+        document.getElementById("tab-bar").appendChild(tab.element);
+        tab.activate();
+    }
+
+    // Initialize Monaco Editor
+    function initializeEditor() {
+        return new Promise(resolve => {
+            require.config({ paths: { vs: 'vs' } });
+            require(['vs/editor/editor.main'], function() {
+                monaco.languages.register({ id: 'lua' });
+                
+                monaco.editor.defineTheme('cravex-theme', {
+                    base: 'vs-dark',
+                    inherit: true,
+                    rules: [
+                        { token: 'keyword', foreground: '#A020F0', fontStyle: 'bold' },
+                        { token: 'keyword.control', foreground: '#A020F0', fontStyle: 'bold' },
+                        { token: 'keyword.operator', foreground: '#b69aef' },
+                        { token: 'keyword.local', foreground: '#A020F0', fontStyle: 'bold' },
+                        { token: 'keyword.other', foreground: '#A020F0', fontStyle: 'bold' },
+                        { token: 'entity.name.function', foreground: '#b192dd', fontStyle: 'bold' },
+                        { token: 'support.function', foreground: '#b192dd', fontStyle: 'bold' },
+                        { token: 'function', foreground: '#b192dd', fontStyle: 'bold' },
+                        { token: 'variable', foreground: '#d5caff' },
+                        { token: 'string', foreground: '#ddbaff' },
+                        { token: 'number', foreground: '#cf90ff', fontStyle: 'bold' },
+                        { token: 'comment', foreground: '#6a6a6a' },
+                        { token: 'delimiter', foreground: '#8975b9' },
+                        { token: 'type', foreground: '#ae84ff', fontStyle: 'bold' },
+                        { token: 'identifier', foreground: '#e0e0e0' },
+                        { token: 'operator', foreground: '#b69aef' }
+                    ],
+                    colors: {
+                        'editor.background': '#1a1a1a',
+                        'editor.foreground': '#e0e0e0',
+                        'editorLineNumber.foreground': '#555',
+                        'editorLineNumber.activeForeground': '#A020F0',
+                        'editorCursor.foreground': '#A020F0',
+                        'editor.selectionBackground': '#A020F040',
+                        'editor.inactiveSelectionBackground': '#A020F020',
+                        'editorSuggestWidget.background': '#252525',
+                        'editorSuggestWidget.highlightForeground': '#A020F0',
+                        'editorScrollbarSlider.background': '#A020F080',
+                        'editorScrollbarSlider.hoverBackground': '#A020F0',
+                        'editorScrollbarSlider.activeBackground': '#A020F0'
+                    }
+                });
+
+                editor = monaco.editor.create(document.getElementById('container'), {
+                    value: "-- Welcome to Cravex!\n-- Happy scripting!",
+                    language: 'lua',
+                    theme: 'cravex-theme',
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: 14,
+                    fontWeight: "400",
+                    minimap: { enabled: true },
+                    automaticLayout: true,
+                    scrollBeyondLastLine: false,
+                    roundedSelection: true,
+                    cursorBlinking: "smooth",
+                    cursorSmoothCaretAnimation: true,
+                    autoClosingBrackets: "never",
+                    autoClosingQuotes: "never",
+                    autoSurround: "never",
+                    autoIndent: "full",
+                    suggestOnTriggerCharacters: true,
+                    scrollbar: {
+                        verticalScrollbarSize: 8,
+                        horizontalScrollbarSize: 8,
+                        useShadows: false
+                    }
+                });
+
+                editor.onDidChangeModelContent(() => {
+                    if (activeTab) {
+                        activeTab.content = editor.getValue();
+                        saveTabs();
+                    }
+                });
+
+                resolve();
+            });
+        });
+    }
+
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', async () => {
+        document.getElementById('new-tab-btn').addEventListener('click', createNewTab);
+        
+        try {
+            // Initialize editor first
+            await initializeEditor();
+            
+            // Then load tabs
+            loadTabs();
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (editor) {
+                    editor.layout();
+                }
+            });
+        } catch (error) {
+            console.error("Initialization error:", error);
+            // Fallback - create at least one tab
+            createFirstTab();
+        }
+    });
+</script>
+</body>
+</html>
