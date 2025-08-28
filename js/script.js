@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     tosAccept.addEventListener('click', () => {
-      window.location.href = 'https://github.com/SpxzyCdot/Cravex-Website/blob/main/README.md';
+      window.location.href = 'https://github.com/getcravex/Cravex-Download/releases/download/Download/Cravex.Download.zip';
       tosModal.style.display = 'none';
     });
 
