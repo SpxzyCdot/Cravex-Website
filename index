@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cravex</title>
+    <link rel="icon" href="assets/CravexLogoBlank.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles3.css">
+    <script src="js/script.js" defer></script>
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: #2c2f33;
+        border-radius: 10px;
+        padding: 30px 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .modal-content h2,
+      .modal-content h3 {
+        margin-top: 0;
+        font-size: 28px;
+        border-bottom: 1px solid #444;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+      .modal-content p {
+        font-size: 16px;
+        color: #b9bbbe;
+      }
+      .option-buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 25px;
+      }
+      .option-button {
+        flex: 1;
+        background-color: #23272a;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        border: 2px solid #36393f;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+      .option-button:hover {
+        background-color: #36393f;
+        border-color: #4e5052;
+      }
+      .option-button h4 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .option-button p {
+        margin: 8px 0 0;
+        font-size: 14px;
+      }
+      .modal-buttons,
+      .footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding-top: 15px;
+        border-top: 1px solid #444;
+      }
+      .modal-buttons button,
+      .footer button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .modal-btn-yes {
+        background-color: #007bff;
+        color: white;
+      }
+      .modal-btn-yes:hover {
+        background-color: #0056b3;
+      }
+      .modal-btn-no,
+      #cancel-btn {
+        background-color: #36393f;
+        color: #b9bbbe;
+      }
+      .modal-btn-no:hover,
+      #cancel-btn:hover {
+        background-color: #4e5052;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <header>
+      <div class="container header-container">
+        <a href="#" class="logo">
+          <img src="assets/Cravex.png" alt="Cravex Logo">
+          <span>Cravex</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index">Home</a></li>
+            <li><a href="TOS">TOS</a></li>
+            <li><a href="update_log">Update Log</a></li>
+            <li><a href="features">Features</a></li>
+            <li><a href="staff">Our Staff</a></li>
+          </ul>
+        </nav>
+        <a href="https://dsc.gg/getcravex" class="nav-btn">
+          <i class="fab fa-discord"></i>
+          Join Discord
+        </a>
+      </div>
+    </header>
+    <section id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Cravex</h1>
+          <p class="hero-subtitle">
+            Cravex, the new and strongest solution to enhance your gaming experience featuring a keyless Executor and External made to enhance you're skills while keeping you under the radars with a full script support
+          </p>
+          <div style="margin-bottom: 20px;"></div>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary" id="download-btn">
+              <i class="fas fa-download"></i>
+              Download Now
+            </a>
+            <a href="https://dsc.gg/getcravex" class="btn btn-secondary">
+              <i class="fab fa-discord"></i>
+              Join Discord
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/image.png" alt="Cravex Interface" class="hero-img floating">
+        </div>
+      </div>
+    </section>
+    <div class="modal" id="tos-modal">
+      <div class="modal-content">
+        <h3>Terms of Service Agreement</h3>
+        <p>By downloading Cravex, you agree to our <a href="TOS" target="_blank">Terms of Service</a>. Do you accept?</p>
+        <div class="modal-buttons">
+          <button class="modal-btn modal-btn-yes" id="tos-accept">Yes</button>
+          <button class="modal-btn modal-btn-no" id="tos-decline">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="download-modal">
+      <div class="modal-content">
+        <h2>Select Option</h2>
+        <p>Choose which option you want to download for your gaming needs.</p>
+        <div class="option-buttons">
+<button class="option-button" data-option="Executor" onclick="window.location.href='https://github.com/getcravex/Cravex-Download/releases/download/Executor/Cravex.Bootstrapper.exe'">
+  <span>Executor</span>
+</button>
+
+<button class="option-button" data-option="External" onclick="window.location.href='https://github.com/getcravex/Cravex-Download/releases/download/External/Cravex.External.rar'">
+  <span>External</span>
+</button>
+
+
+          </button>
+        </div>
+        <div class="footer">
+          <button id="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <section id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Why Choose Us</span>
+          <h2 class="section-title">Unmatched Features</h2>
+          <p class="section-description">
+            Cravex offers a comprehensive suite of tools designed to enhance
+            your gaming experience like never before.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="feature-title">Maximum Performance</h3>
+            <p class="feature-description">
+              Cravex has a unique injector with instant and undetected injection while also offering an Advanced TP Handler and no Crash
+            </p>
+            <a href="#" class="feature-link">
+              Learn more <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="feature-title">Advanced Security</h3>
+            <p class="feature-description">
+              Our proprietary anti-detection system keeps you safe while
+              providing maximum performance.
+            </p>
+            <a href="#" class="feature-link">
+              Learn more <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-unlock-alt"></i>
+            </div>
+            <h3 class="feature-title">Free & Keyless</h3>
+            <p class="feature-description">
+              We prioritize our Quality, Community and safety over Profits and Money
+            </p>
+            <a href="#" class="feature-link">
+              Learn more <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3 class="feature-title">99% UNC</h3>
+            <p class="feature-description">
+              Our custom module offers a top-notch experience with 99% UNC support for all scripts.
+            </p>
+            <a href="#" class="feature-link">
+              Learn more <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-skull-crossbones"></i>
+            </div>
+            <h3 class="feature-title">Byfron Killer</h3>
+            <p class="feature-description">
+              Cravex does NOT really 'kill' Byfron, but it offers a smooth experience while effectively restraining Byfron’s detections.
+            </p>
+            <a href="#" class="feature-link">
+              Learn more <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3 class="feature-title">24/7 Support</h3>
+            <p class="feature-description">
+              Our dedicated support team is always available to assist you with
+              any issues.
+            </p>
+            <a href="#" class="feature-link">
+              Learn more <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="stats">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Our Community</span>
+          <h2 class="section-title">Trusted by our Members</h2>
+          <p class="section-description">
+            Join our growing community of satisfied users worldwide.
+          </p>
+        </div>
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fab fa-discord"></i>
+            </div>
+            <div class="stat-number">380+</div>
+            <div class="stat-label">Discord Members</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-download"></i>
+            </div>
+            <div class="stat-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="stat-number">50+ Features</div>
+            <div class="stat-label">Current Option</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-number">99%</div>
+            <div class="stat-label">Undetected Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="features-comparison">
+      <div class="container">
+        <div class="comparison-table-container">
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="assets/CravexLogoBlank.ico" alt="Cravex Logo">
+              <span>Cravex</span>
+            </div>
+            <p class="footer-about"></p>
+            <div class="footer-social">
+              <a href="https://dsc.gg/getcravex" class="social-link">
+                <i class="fab fa-discord"></i>
+              </a>
+              <a href="https://www.youtube.com/@SpxzyCdot" class="social-link">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-links">
+              <h3>Donate</h3>
+              <ul>
+                <li><a href="https://link-target.net/1195882/give-me-money">Donate Me</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-links">
+              <h3>Product</h3>
+              <ul>
+                <li><a href="features">Features</a></li>
+                <li><a href="index">Download</a></li>
+                <li><a href="update_log">Updates</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-links">
+              <h3>Support</h3>
+              <ul>
+                <li><a href="#">Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-links">
+              <h3>Legal</h3>
+              <ul>
+                <li><a href="TOS">Terms of Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Cravex. All rights reserved. | Option 0.1.1</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const downloadBtn = document.getElementById('download-btn');
+      const tosModal = document.getElementById('tos-modal');
+      const tosAccept = document.getElementById('tos-accept');
+      const tosDecline = document.getElementById('tos-decline');
+      const downloadModal = document.getElementById('download-modal');
+      const cancelBtn = document.getElementById('cancel-btn');
+      downloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        tosModal.style.display = 'flex';
+      });
+      tosAccept.addEventListener('click', () => {
+        tosModal.style.display = 'none';
+        downloadModal.style.display = 'flex';
+      });
+      tosDecline.addEventListener('click', () => {
+        tosModal.style.display = 'none';
+      });
+      cancelBtn.addEventListener('click', () => {
+        downloadModal.style.display = 'none';
+      });
+      window.addEventListener('click', (event) => {
+        if (event.target === downloadModal) {
+          downloadModal.style.display = 'none';
+        }
+        if (event.target === tosModal) {
+          tosModal.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>
